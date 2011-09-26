@@ -1,0 +1,11 @@
+name: ChatWithMe
+version: 1.0
+description: A more improved chat system!
+authors: [oyasunadev, liam_allan]
+website: http://dev.bukkit.org/server-mods/chatwithme/
+main: me.oyasunadev.chatwithme.ChatWithMe
+commands:
+    chat:
+        description: Prefix for all the commands ChatWithMe includes.
+        aliases: ch
+        usage: /<command>

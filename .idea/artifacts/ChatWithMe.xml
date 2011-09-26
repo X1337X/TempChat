@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ChatWithMe">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChatWithMe</output-path>
+    <root id="archive" name="ChatWithMe.jar">
+      <element id="file-copy" path="$PROJECT_DIR$/resources/plugin.yml" />
+      <element id="module-output" name="ChatWithMe" />
+    </root>
+  </artifact>
+</component>

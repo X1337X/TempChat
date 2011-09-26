@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Includes">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/Minecraft/Server/craftbukkit-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="intellijad://intellijad" />
+    </SOURCES>
+  </library>
+</component>
