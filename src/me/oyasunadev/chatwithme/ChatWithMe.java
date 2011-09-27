@@ -32,6 +32,9 @@ import java.util.logging.Logger;
 
 public class ChatWithMe extends JavaPlugin
 {
+	
+	HashMap<String,String> servermap = new HashMap<String,String>();
+	
 	private boolean updateAvailable = false;
 	private PluginManager pm;
 
@@ -45,6 +48,7 @@ public class ChatWithMe extends JavaPlugin
 
 	public Configuration chatConfig;
 	public Configuration config;
+	public Configuration servers;
 
 	public void onEnable()
 	{
@@ -75,6 +79,9 @@ public class ChatWithMe extends JavaPlugin
 			config = new Configuration(new File(getDataFolder().getPath() + "/config.yml"));
 			config.load();
 
+			servers = new Configuration(new File(getDataFolder().getPath() + "/servers.yml"));
+			servers.load();
+			
 			log.info("[" + pdfFile.getName() + " v" + pdfFile.getVersion() + "] Successfully enabled!");
 
 			pm.registerEvent(Event.Type.PLAYER_JOIN, PlayerListener, Event.Priority.Normal, this);
