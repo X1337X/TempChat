@@ -23,7 +23,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.oyasunadev.chatwithme.listeners.playerListener;
-import org.bukkit.util.config.Configuration;
+
 
 import java.io.File;
 import java.util.HashMap;
