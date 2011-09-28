@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import me.oyasunadev.chatwithme.Censor.Censor;
 import me.oyasunadev.chatwithme.Server.CrossServerChat;
 import me.oyasunadev.chatwithme.Server.CrossServerChatObject;
 import me.oyasunadev.chatwithme.Server.CrossServerObject;
@@ -94,7 +95,7 @@ public class ChatWithMe extends JavaPlugin
 			pm.registerEvent(Event.Type.PLAYER_JOIN, PlayerListener, Event.Priority.Normal, this);
 			pm.registerEvent(Event.Type.PLAYER_QUIT, PlayerListener, Event.Priority.Normal, this);
 		    pm.registerEvent(Event.Type.PLAYER_CHAT, PlayerListener, Event.Priority.Normal, this);
-		    new Censor()
+		    new Censor().loadWords(config);
 		}
 	}
 	public void onDisable()

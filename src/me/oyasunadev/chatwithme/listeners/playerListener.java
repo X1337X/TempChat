@@ -1,6 +1,8 @@
 package me.oyasunadev.chatwithme.listeners;
 
 import me.oyasunadev.chatwithme.ChatWithMe;
+import me.oyasunadev.chatwithme.Censor.Censor;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerChatEvent;
@@ -20,6 +22,7 @@ public class playerListener extends PlayerListener
 	{
 		Player player = event.getPlayer();
         String message = event.getMessage();
+        event.setMessage(Censor.censor(message));
 		if(chatWithMe.chatType.get(player) != null)
 		{
 			event.setCancelled(true);
