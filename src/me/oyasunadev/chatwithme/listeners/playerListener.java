@@ -19,7 +19,7 @@ public class playerListener extends PlayerListener
 	public void onPlayerChat(PlayerChatEvent event)
 	{
 		Player player = event.getPlayer();
-
+        String message = event.getMessage();
 		if(chatWithMe.chatType.get(player) != null)
 		{
 			event.setCancelled(true);

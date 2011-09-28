@@ -59,7 +59,7 @@ public class ChatWithMe extends JavaPlugin
 	public void onEnable()
 	{
 		boolean cancel = false;
-
+          
 		pdfFile = getDescription();
 		pm = getServer().getPluginManager();
 
@@ -93,7 +93,8 @@ public class ChatWithMe extends JavaPlugin
 
 			pm.registerEvent(Event.Type.PLAYER_JOIN, PlayerListener, Event.Priority.Normal, this);
 			pm.registerEvent(Event.Type.PLAYER_QUIT, PlayerListener, Event.Priority.Normal, this);
-			pm.registerEvent(Event.Type.PLAYER_CHAT, PlayerListener, Event.Priority.Normal, this);
+		    pm.registerEvent(Event.Type.PLAYER_CHAT, PlayerListener, Event.Priority.Normal, this);
+		    new Censor()
 		}
 	}
 	public void onDisable()
