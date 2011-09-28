@@ -13,7 +13,18 @@
 
 package me.oyasunadev.chatwithme;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import me.oyasunadev.chatwithme.Server.CrossServerChat;
+import me.oyasunadev.chatwithme.Server.CrossServerChatObject;
+import me.oyasunadev.chatwithme.Server.CrossServerObject;
+import me.oyasunadev.chatwithme.listeners.playerListener;
 import me.oyasunadev.chatwithme.updater.UpdatePlugin;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,19 +33,14 @@ import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import me.oyasunadev.chatwithme.listeners.playerListener;
-
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
+import org.bukkit.util.config.Configuration;
 
 public class ChatWithMe extends JavaPlugin
 {
 	
-	HashMap<String,String> servermap = new HashMap<String,String>();
-	
+	ArrayList<CrossServerObject> serverlist = new ArrayList<CrossServerObject>();
+	CrossServerChat CsC = new CrossServerChat();
+	String ServerName = null;
 	private boolean updateAvailable = false;
 	private PluginManager pm;
 
@@ -81,6 +87,7 @@ public class ChatWithMe extends JavaPlugin
 
 			servers = new Configuration(new File(getDataFolder().getPath() + "/servers.yml"));
 			servers.load();
+			this.ServerName = servers.getString("servername", "");
 			
 			log.info("[" + pdfFile.getName() + " v" + pdfFile.getVersion() + "] Successfully enabled!");
 
@@ -144,6 +151,8 @@ public class ChatWithMe extends JavaPlugin
 					}
 				} else if(chk(args[0], "global", "gb")) { //Global Chatting
 					//TODO: Implement multiple server communication
+					CrossServerChatObject o = new CrossServerChatObject(args[2],player.getDisplayName(),this.ServerName);
+					//TODO send object to other server
 				}
 			}
 
@@ -166,5 +175,8 @@ public class ChatWithMe extends JavaPlugin
 		}
 
 		return false;
+	}
+	public void addServer(CrossServerObject ob){
+		this.serverlist.add(ob);
 	}
 }

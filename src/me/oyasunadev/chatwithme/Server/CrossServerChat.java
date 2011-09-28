@@ -15,6 +15,7 @@ Configuration f = null;
 			CrossServerObject ob = new CrossServerObject(i);
 			ob.addIP(getIP(i));
 			ob.addPort(getPort(i));
+			plugin.a
 		}
 	}
 	
